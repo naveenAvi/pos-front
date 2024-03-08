@@ -60,7 +60,8 @@ export default function AddItem({ addItem, setaddItem, stocks, categories, Items
             description: itemdetails.itemDescription,
             itemName: itemdetails.itemName,
             itemQuantity: 0,
-            itemUnitPrice: parseInt(itemdetails.itemUnitPrice)
+            itemUnitPrice: parseInt(itemdetails.itemUnitPrice),
+            
         }
         e.preventDefault();
         if (addItem.editing) {
@@ -107,7 +108,7 @@ export default function AddItem({ addItem, setaddItem, stocks, categories, Items
                     <select disabled={addItem.editing ? true : false} class="form-select" value={itemdetails.stockId} id="stockId" name='stockId' onChange={(e) => { changedetails(e.target.name, e.target.value) }} required>
                         <option>select</option>
                         {stocks && stocks.map((stock) => (
-                            <option key={stock.stockId} value={stock.id}>{stock.name}</option>
+                            <option key={stock.stockId} value={stock.stock_id}>{stock.name}</option>
                         ))}
                     </select>
                     <br />
