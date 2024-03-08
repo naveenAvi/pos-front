@@ -9,13 +9,13 @@ export default function AddStocks({ addstocks, setaddstocks, setStocks, stocks }
     useEffect(() => {
         if (addstocks.editing) {
             setStockName(addstocks.editing.name)
-            setquantity(addstocks.editing.qty)
+            setquantity(addstocks.editing.quantity)
         }
     }, [addstocks])
 
 
     const update = async (data) => {
-        axios.put(`http://localhost:8080/api/v1/stock?id=${addstocks.editing.stockId}`, data).then(function (response) {
+        axios.put(`http://localhost:8080/api/v1/stock?id=${addstocks.editing.stock_id}`, data).then(function (response) {
             setaddstocks({ display: false })
             const updatedStocks = stocks.map((stock) =>
                 stock.stock_id === addstocks.editing.stock_id ? {
