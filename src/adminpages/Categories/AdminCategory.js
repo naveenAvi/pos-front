@@ -49,8 +49,12 @@ export default function AdminCategory() {
             const response = await axios.get("http://localhost:8080/api/v1/categories");
             setCategories(response.data.data);
         } catch (error) {
+            console.log(error.response.data.code)
             if (error.response.status === 401) {
                 navigate("/admin/login");
+            }else if (error.response.data.code === 404) {
+                setCategories([]);
+
             }
         }
     }

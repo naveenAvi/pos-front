@@ -36,6 +36,8 @@ export default function AdminItems() {
     } catch (error) {
       if (error.response.status === 401) {
         navigate("/admin/login");
+      } else if (error.response.data.code === 404) {
+        setCategories([]);
       }
     }
   }
@@ -47,6 +49,8 @@ export default function AdminItems() {
     } catch (error) {
       if (error.response.status === 401) {
         navigate("/admin/login");
+      } else if (error.response.data.code === 404) {
+        setStocks([]);
       }
     }
   }
@@ -58,6 +62,8 @@ export default function AdminItems() {
     } catch (error) {
       if (error.response.status === 401) {
         navigate("/admin/login");
+      } else if (error.response.data.code === 404) {
+        setItems([]);
       }
     }
   }
@@ -102,7 +108,7 @@ export default function AdminItems() {
 
         <br></br>
 
-      
+
         {items && items.length > 0 && (
           <table className="category-table">
             <colgroup>

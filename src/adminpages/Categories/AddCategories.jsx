@@ -41,7 +41,7 @@ export default function AddCategories({ addcategories, setaddcategories, setCate
         }).then(function (response) {
             setaddcategories({ display: false })
             setCategories([...categories, {
-                id: response.data.data,
+                categoryId: response.data.data,
                 category: CategoryType,
                 description: categoryDescription
             }])

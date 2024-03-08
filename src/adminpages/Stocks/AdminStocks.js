@@ -27,6 +27,8 @@ export default function AdminStocks() {
     } catch (error) {
       if (error.response.status === 401) {
         navigate("/admin/login");
+      }else if (error.response.data.code === 404) {
+        setStocks([]);
       }
     }
   }
