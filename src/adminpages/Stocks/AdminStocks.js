@@ -83,7 +83,7 @@ export default function AdminStocks() {
               </thead>
               <tbody>
                 {stocks.map((stock) => (
-                  <tr key={stock.id}>
+                  <tr key={stock.stock_id}>
                     <td>{stock.stock_id}</td>
                     <td>
                       {stock.name}

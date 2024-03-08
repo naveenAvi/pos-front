@@ -15,13 +15,13 @@ export default function AddStocks({ addstocks, setaddstocks, setStocks, stocks }
 
 
     const update = async (data) => {
-        axios.post(`http://localhost:8080/api/v1/stock?id=${addstocks.editing.stockId}`, data).then(function (response) {
+        axios.put(`http://localhost:8080/api/v1/stock?id=${addstocks.editing.stockId}`, data).then(function (response) {
             setaddstocks({ display: false })
             const updatedStocks = stocks.map((stock) =>
                 stock.stock_id === addstocks.editing.stock_id ? {
                     ...stock,
                     name: StockName,
-                     quantity
+                    quantity
                 } : stock
             );
             setStocks(updatedStocks);
