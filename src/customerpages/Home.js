@@ -49,7 +49,7 @@ export default function Home() {
     }
     const saveOrder = async () => {
         await checkouts.forEach(async item => {
-            await saveOrderprocess({ cartId: cartID.toString(), itemId: item.itemId.toString(), quantity: item.quantity.toString() })
+            await saveOrderprocess({ cartId: `POS-C-${ cartID }`, itemId: item.itemId.toString(), quantity: item.quantity.toString() })
         });
 
         localStorage.setItem("cartid", cartID + 1)
