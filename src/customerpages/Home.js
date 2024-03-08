@@ -53,7 +53,7 @@ export default function Home() {
         });
 
         localStorage.setItem("cartid", cartID + 1)
-        window.location.reload()
+       // window.location.reload()
     }
 
 
