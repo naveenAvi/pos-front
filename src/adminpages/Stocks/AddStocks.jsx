@@ -79,7 +79,7 @@ export default function AddStocks({ addstocks, setaddstocks, setStocks, stocks }
                 </Modal.Body>
                 <Modal.Footer>
                     <button type="button" class="btn btn-secondary" onClick={hidemodal}>Close</button>
-                    <button type="submit" class="btn btn-primary" >Save changes</button>
+                    <button type="submit" class="btn btn-primary" > {addstocks.editing ? "update": "Add"} stock</button>
                 </Modal.Footer>
             </form>
         </Modal>

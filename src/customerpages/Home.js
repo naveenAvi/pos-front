@@ -113,7 +113,6 @@ export default function Home() {
                                     <td>{items.quantity}</td>
                                     <td>{items.itemUnitPrice}</td>
                                     <td>{items.quantity * items.itemUnitPrice}</td>
-
                                 </tr>
                             ))}
                         </tbody>

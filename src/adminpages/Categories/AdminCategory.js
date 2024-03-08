@@ -75,7 +75,6 @@ export default function AdminCategory() {
                         </div>
                     </Row>
                 </Card>
-                <div className='col-md-9 mt-4'>
                     {categories && categories.length > 0 && (
                         <Table className="category-table">
                             <colgroup>
@@ -116,7 +115,6 @@ export default function AdminCategory() {
                             </tbody>
                         </Table>
                     )}
-                </div>
                 {EmptyContent(categories)}
                 {/* <div className="admin-category-container">
                     <form onSubmit={createCategory}>

@@ -134,6 +134,7 @@ export default function AdminOrder() {
               <tbody>
                 {checkouts.map((checkout) => (
                   <tr key={checkout.id}>
+                  
                     <td>{checkout.id}</td>
                     <td>
                       {checkout.total}
@@ -147,6 +148,7 @@ export default function AdminOrder() {
                   </tr>
                 ))}
               </tbody>
+              
             </table>
           )}
 
