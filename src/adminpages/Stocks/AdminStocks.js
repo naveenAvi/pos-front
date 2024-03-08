@@ -89,7 +89,7 @@ export default function AdminStocks() {
                       {stock.name}
                     </td>
                     <td>
-                      {stock.qty}
+                      {stock.quantity}
                     </td>
                     <td>
                       <UpdateButton onClick={setaddStocks} item={{ display: true, editing: stock }} />

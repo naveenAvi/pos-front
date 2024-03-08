@@ -21,7 +21,7 @@ export default function AddStocks({ addstocks, setaddstocks, setStocks, stocks }
                 stock.stock_id === addstocks.editing.stock_id ? {
                     ...stock,
                     name: StockName,
-                    qty: quantity
+                     quantity
                 } : stock
             );
             setStocks(updatedStocks);
@@ -36,7 +36,7 @@ export default function AddStocks({ addstocks, setaddstocks, setStocks, stocks }
             setStocks([...stocks, {
                 id: response.data.id,
                 name: StockName,
-                qty: quantity
+                quantity
             }])
         }).catch(function (error) {
             console.log(error);
