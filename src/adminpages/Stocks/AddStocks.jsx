@@ -34,7 +34,7 @@ export default function AddStocks({ addstocks, setaddstocks, setStocks, stocks }
         axios.post('http://localhost:8080/api/v1/stock', data).then(function (response) {
             setaddstocks({ display: false })
             setStocks([...stocks, {
-                id: response.data.id,
+                id: response.data.data,
                 name: StockName,
                 quantity
             }])

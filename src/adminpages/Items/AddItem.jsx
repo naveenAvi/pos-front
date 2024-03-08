@@ -46,7 +46,7 @@ export default function AddItem({ addItem, setaddItem, stocks, categories, Items
         axios.post(`http://localhost:8080/api/v1/items?categoryId=${itemdetails.categoryId}&stockId=${itemdetails.stockId}`, data).then(function (response) {
             setaddItem({ display: false })
             let jj = JSON.parse(JSON.stringify(Items))
-            jj.push(data)
+            jj.push({...data,itemId:response.data.data })
             setItems(jj)
         }).catch(function (error) {
             console.log(error);
