@@ -27,7 +27,8 @@ export default function AdminOrder() {
       setCheckouts(groupBy(response.data.data));
     } catch (error) {
       if (error.response.status === 401) {
-        //navigate("/admin/login");
+      } else if (error.response.data.code === 404) {
+        setCheckouts([]);
       }
     }
   }
@@ -43,14 +44,14 @@ export default function AdminOrder() {
     }
   }
 
-  
+
   const getListOfOrders = () => {
     let gg = []
     checkouts && Object.keys(checkouts).forEach(key => {
       const value = checkouts[key][0];
       console.log(value);
 
-      gg.push(<li onClick={() => setSelectedCartItems(checkouts[key])} className={`list-group-item d-flex justify-content-between align-items-center ${  value.cart?.cartId === SelectedCartItems[0]?.cart?.cartId ? "active":"" }`}>
+      gg.push(<li onClick={() => setSelectedCartItems(checkouts[key])} className={`list-group-item d-flex justify-content-between align-items-center ${value.cart?.cartId === SelectedCartItems[0]?.cart?.cartId ? "active" : ""}`}>
         <div>
           <span style={{ backgroundColor: "blue" }} class="badge badge-primary badge-pill">ID: {value.cart.cartId}</span>
           <span style={{ marginLeft: "20px" }}>{value.user.email}</span>
@@ -104,7 +105,7 @@ export default function AdminOrder() {
                         <td>
                           {checkout.item.itemUnitPrice}
                         </td>
-                        
+
                       </tr>
                     ))}
                   </tbody>

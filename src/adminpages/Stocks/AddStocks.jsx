@@ -46,7 +46,7 @@ export default function AddStocks({ addstocks, setaddstocks, setStocks, stocks }
     const handleSUbmit = (e) => {
         const data = {
             name: StockName,
-            qty: quantity
+             quantity
         }
         e.preventDefault();
         if (addstocks.editing) {

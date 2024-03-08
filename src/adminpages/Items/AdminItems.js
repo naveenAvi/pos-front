@@ -153,8 +153,9 @@ export default function AdminItems() {
             </tbody>
           </table>
         )}
+        {EmptyContent(items)}
       </div>
-      {EmptyContent(items)}
+      
       <AddItem addItem={addItem} Items={items} setItems={setItems} setaddItem={setaddItem} stocks={stocks} categories={categories} />
     </div>
   )
