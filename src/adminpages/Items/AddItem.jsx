@@ -58,8 +58,6 @@ export default function AddItem({ addItem, setaddItem, stocks, categories, Items
             activeState: true,
             itemDescription: itemdetails.itemDescription,
             description: itemdetails.itemDescription,
-            itemExpiredDate: new Date("2024-03-07T03:53:32.926Z"),
-            itemManufacturedDate: new Date("2024-03-07T03:53:32.926Z"),
             itemName: itemdetails.itemName,
             itemQuantity: 0,
             itemUnitPrice: parseInt(itemdetails.itemUnitPrice)
