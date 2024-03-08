@@ -11,9 +11,7 @@ import { DeleteButton, UpdateButton } from '../../utils/Buttons';
 export default function AdminStocks() {
   const [addStocks, setaddStocks] = useState({ display: false })
   const [loadingBTN, setloadingBTN] = useState({ delete: true, loadingID: null })
-  const [stocks, setStocks] = useState([{
-    id: 1, name: "asdfhusahdf"
-  }]);
+  const [stocks, setStocks] = useState(null);
 
   useEffect(() => {
     getStocks();

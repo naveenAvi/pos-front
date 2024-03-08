@@ -12,7 +12,7 @@ const categorytypes = ["FRUIT",
 
 export default function AddCategories({ addcategories, setaddcategories, setCategories, categories }) {
     const [categoryDescription, setcategoryDescription] = useState("");
-    const [CategoryType, setCategoryType] = useState("");
+    const [CategoryType, setCategoryType] = useState("FRUIT");
 
     const update = async (e) => {
         axios.put(`http://localhost:8080/api/v1/categories?id=${addcategories.editing.categoryId}`, {

@@ -42,8 +42,8 @@ export default function AdminItems() {
 
   const getStocks = async () => {
     try {
-      const response = await axios.get("http://localhost:8080/stocks");
-      //setStocks(response.data);
+      const response = await axios.get("http://localhost:8080/api/v1/stock/get-all");
+      setStocks(response.data.data);
     } catch (error) {
       if (error.response.status === 401) {
         navigate("/admin/login");
