@@ -11,6 +11,7 @@ import AdminStocks from './adminpages/Stocks/AdminStocks';
 import AdminItems from './adminpages/Items/AdminItems';
 import LoginN from './customerpages/Auth/LoginN';
 import RegisterN from './customerpages/Auth/Registern';
+import Invoice from './customerpages/Invoice/Invoice';
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
             <Route path='/admin/stocks' element={<AdminStocks />} />
             <Route path='/admin/orders' element={<AdminOrder />} />
             <Route path='/admin/customers' element={<AdminCustomer />} />
+            <Route path='/invoice' element={<Invoice />} />
+
+            
 
             <Route path='/' element={<Home />} />
        

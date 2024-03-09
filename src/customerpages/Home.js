@@ -1,12 +1,28 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import NavBar from './components/NavBar';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
     const [items, setItems] = useState(null);
-    const [checkouts, setCheckouts] = useState([]);
+    const [OrderSaved, setOrderSaved] = useState(false);
+    const [checkouts, setCheckouts] = useState([
+        {
+            itemId:1,
+            itemName:"hello",
+            quantity:"500",
+            itemUnitPrice:"200",
+        },
+        {
+            itemId:1,
+            itemName:"hello",
+            quantity:"500",
+            itemUnitPrice:"200",
+        }
+    ]);
     const [total, setTotal] = useState(0);
     const [cartID, setcartID] = useState(0);
+    const navigate = useNavigate()
 
     useEffect(() => {
         getItems();
@@ -45,16 +61,20 @@ export default function Home() {
             const response = await axios.post(`http://localhost:8080/api/v1/cart-item?cartId=${item.cartId}&itemId=${item.itemId}&quantity=${item.quantity}`, item);
         } catch (error) {
         }
-
     }
+
     const saveOrder = async () => {
         await checkouts.forEach(async item => {
             await saveOrderprocess({ cartId: `POS-C-1`, itemId: item.itemId.toString(), quantity: item.quantity.toString() })
         });
-
+        setOrderSaved(true)
         localStorage.setItem("cartid", cartID + 1)
-        setcartID(cartID+1)
-       // window.location.reload()
+        setcartID(cartID + 1)
+    }
+
+    const PrintInvoice = () => {
+        setOrderSaved(false)
+        navigate("/invoice?items=" + encodeURIComponent(JSON.stringify(checkouts)))
     }
 
 
@@ -124,6 +144,8 @@ export default function Home() {
                         </thead>
                     </table>
                     <button className='btn btn-primary' onClick={saveOrder}>Save Order</button>
+                    {OrderSaved?
+                    <button className='btn btn-primary' onClick={PrintInvoice}>Print Invoice</button>:""}
                 </div>
             </div>
         </div>
