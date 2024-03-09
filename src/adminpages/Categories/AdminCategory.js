@@ -116,16 +116,7 @@ export default function AdminCategory() {
                         </Table>
                     )}
                 {EmptyContent(categories)}
-                {/* <div className="admin-category-container">
-                    <form onSubmit={createCategory}>
-                        <h2>Create a new Category</h2>
-                        <label htmlFor="categoryName">Category Name:</label>
-                        <input type="text" onChange={(e) => { setNewCategory(e.target.value) }} required />
-
-                        <button type="submit">Create Category</button>
-                    </form>
-                </div> */}
-
+               
 
             </div>
             <AddCategories categories={categories} setCategories={setCategories} addcategories={addcategories} setaddcategories={setaddcategories} />

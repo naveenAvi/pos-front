@@ -127,7 +127,7 @@ export default function Home() {
                         </thead>
                         <tbody>
                             {checkouts.map(items => (
-                                <tr>
+                                <tr key={items.itemId}>
                                     <td>{items.itemId}</td>
                                     <td>{items.itemName}</td>
                                     <td>{items.quantity}</td>
